@@ -1,0 +1,33 @@
+{
+	"title": "Derry Girls",
+	"release_year": "2018",
+	"runtime": "30",
+	"tags": [
+		"Comedy",
+		"amazon",
+		"netflix"
+	],
+	"rating": 8.5,
+	"votes": 63344,
+	"actors": [
+		"Saoirse-Monica Jackson",
+		"Louisa Harland",
+		"Tara Lynne O'Neill",
+		"Kathy Kiera Clarke",
+		"Tommy Tiernan",
+		"Ian McElhinney",
+		"Nicola Coughlan",
+		"Jamie-Lee O'Donnell",
+		"Dylan Llewellyn",
+		"Siobhán McSweeney"
+	],
+	"staff": [
+		"Lisa McGee",
+		"Lisa McGee"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BZjVhN2FhMzctZDlkMS00NTY3LWEyZmEtOTE5NDlkN2JkNDE3XkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg",
+	"links": [
+		"https://www.amazon.com/Erins-Diary-Official-Derry-Girls/dp/1841884413",
+		"https://www.netflix.com/title/80238565"
+	]
+}

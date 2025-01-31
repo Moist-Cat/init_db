@@ -1,0 +1,29 @@
+{
+	"title": "Chef's Table",
+	"release_year": "2015",
+	"runtime": "50",
+	"tags": [
+		"Biography",
+		"Documentary",
+		"netflix"
+	],
+	"rating": 8.5,
+	"votes": 17202,
+	"actors": [
+		"Massimo Bottura",
+		"Francis Mallmann",
+		"Ruth Reichl",
+		"Magnus Nilsson",
+		"Dan Barber",
+		"Bill Buford",
+		"Ben Shewry",
+		"Lara Gilmore",
+		"Niki Nakayama",
+		"Grant Achatz"
+	],
+	"staff": [],
+	"cover": "https://m.media-amazon.com/images/M/MV5BMjE3MDQ2OTYyN15BMl5BanBnXkFtZTgwNjQ0Nzg0NzM@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+	"links": [
+		"https://www.netflix.com/title/80007945"
+	]
+}
