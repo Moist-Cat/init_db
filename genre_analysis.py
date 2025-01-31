@@ -3,9 +3,14 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import scipy.stats as stats
-import itertools
 from glob import glob
 from pathlib import Path
+
+import numpy as np
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
 
 from build import load_json, save_file
 
@@ -84,6 +89,59 @@ def perform_ks_tests(genre_df):
         else:
             st.markdown(f"**Conclusion**: The distributions of {result[0]} and {result[1]} are not significantly different in shape.")
 
+# Function to perform polynomial regression
+def perform_polynomial_regression(genre_df):
+    # Convert categorical variable 'Genre' to numerical using one-hot encoding
+    genre_dummies = pd.get_dummies(genre_df['Genre'], drop_first=True)
+    X = genre_dummies.values  # Independent variables
+    y = genre_df['Vote Count'].values  # Dependent variable
+
+    # Fit polynomial features
+    poly = PolynomialFeatures(degree=2)  # You can change the degree based on your needs
+    X_poly = poly.fit_transform(X)
+
+    # Fit linear regression model
+    model = LinearRegression()
+    model.fit(X_poly, y)
+
+    # Predictions and metrics
+    y_pred = model.predict(X_poly)
+    
+    mse = mean_squared_error(y, y_pred)
+    r2 = r2_score(y, y_pred)
+
+    st.subheader("Polynomial Regression Results")
+    st.write(f"Mean Squared Error: {mse}")
+    st.write(f"R-squared: {r2}")
+
+    # Plotting the results
+    plt.figure(figsize=(10, 6))
+    plt.scatter(y, y_pred)
+    plt.xlabel('Actual Vote Count')
+    plt.ylabel('Predicted Vote Count')
+    plt.title('Actual vs Predicted Vote Count')
+    plt.plot([min(y), max(y)], [min(y), max(y)], color='red', linestyle='--')  # Diagonal line
+    st.pyplot(plt)
+
+# Check assumptions function
+def check_assumptions(genre_df):
+    # Residuals calculation
+    X = pd.get_dummies(genre_df['Genre'], drop_first=True).values
+    y = genre_df['Vote Count'].values
+    
+    poly = PolynomialFeatures(degree=2)
+    X_poly = poly.fit_transform(X)
+    
+    model = LinearRegression()
+    model.fit(X_poly, y)
+    
+    residuals = y - model.predict(X_poly)
+
+    # Check normality of residuals
+    st.subheader("Normality of Residuals")
+    stats.probplot(residuals, dist="norm", plot=plt)
+    st.pyplot(plt) 
+
 # Streamlit App layout
 def main():
     metadata_dirs = glob("metadata*")
@@ -132,6 +190,11 @@ def main():
 
     if st.sidebar.checkbox("Run Kolmogorov-Smirnov Pairwise Test"):
         perform_ks_tests(genre_df)
+
+        # Run Polynomial Regression and Check Assumptions
+    if st.sidebar.checkbox("Run Polynomial Regression"):
+        perform_polynomial_regression(genre_df)
+        check_assumptions(genre_df)
 
 if __name__ == "__main__":
     main()
