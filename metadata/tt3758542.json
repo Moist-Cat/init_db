@@ -1,0 +1,43 @@
+{
+	"title": "Ferrari",
+	"release_year": "2023",
+	"runtime": "130",
+	"tags": [
+		"Biography",
+		"Drama",
+		"History",
+		"amazon"
+	],
+	"rating": 6.4,
+	"actors": [
+		"Adam Driver",
+		"Shailene Woodley",
+		"Giuseppe Festinese",
+		"Alessandro Cremona",
+		"Derek Hill",
+		"Leonardo Caimi",
+		"Penélope Cruz",
+		"Gabriel Leone",
+		"Michele Savoia",
+		"Jacopo Bruno"
+	],
+	"staff": [
+		"Michael Mann",
+		"Troy Kennedy Martin",
+		"Brock Yates",
+		"Monika Bacardi",
+		"John Friedberg",
+		"Thomas Hayslip",
+		"Andrea Iervolino",
+		"Daniel Pemberton",
+		"Erik Messerschmidt",
+		"Pietro Scalia",
+		"Francine Maisler",
+		"Maria Djurkovic"
+	],
+	"votes": 55253,
+	"links": [
+		"https://www.amazon.com/Ferrari-Adam-Driver/dp/B0CNDBN672"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BYmUzYmJiMDMtZjIxNy00ZjBlLThjZDMtMDA1ZDM4MWMwNmI0XkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg"
+}

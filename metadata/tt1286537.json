@@ -1,0 +1,39 @@
+{
+	"title": "Food, Inc.",
+	"release_year": "2008",
+	"runtime": "94",
+	"tags": [
+		"Documentary",
+		"News",
+		"amazon"
+	],
+	"rating": 7.8,
+	"actors": [
+		"Michael Pollan",
+		"Eric Schlosser",
+		"Richard Lobb",
+		"Vince Edwards",
+		"Carole Morison",
+		"Troy Roush",
+		"Larry Johnson",
+		"Allen Trenkle",
+		"Barbara Kowalcyk",
+		"Patricia Buck"
+	],
+	"staff": [
+		"Robert Kenner",
+		"Robert Kenner",
+		"Elise Pearlstein",
+		"Kim Roberts",
+		"Robert Kenner",
+		"Elise Pearlstein",
+		"Mark Adler",
+		"Richard Pearce",
+		"Kim Roberts"
+	],
+	"votes": 52424,
+	"links": [
+		"https://www.amazon.com/Food-Inc-2-Robert-Kenner/dp/B0CVNK5QHZ"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BNmQyY2VlNTYtYjYzNi00YmY3LTgzNTktOWJkZmNlMmFlNWQyXkEyXkFqcGc@._V1_QL75_UY281_CR5,0,190,281_.jpg"
+}

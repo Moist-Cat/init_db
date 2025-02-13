@@ -1,0 +1,41 @@
+{
+	"title": "The Mission",
+	"release_year": "1986",
+	"runtime": "125",
+	"tags": [
+		"Adventure",
+		"Drama",
+		"History",
+		"amazon"
+	],
+	"rating": 7.4,
+	"actors": [
+		"Robert De Niro",
+		"Jeremy Irons",
+		"Ray McAnally",
+		"Aidan Quinn",
+		"Cherie Lunghi",
+		"Ronald Pickup",
+		"Chuck Low",
+		"Liam Neeson",
+		"Bercelio Moya",
+		"Sigifredo Ismare"
+	],
+	"staff": [
+		"Roland Joffé",
+		"Robert Bolt",
+		"Fernando Ghia",
+		"David Puttnam",
+		"Ennio Morricone",
+		"Chris Menges",
+		"Jim Clark",
+		"Susie Figgis",
+		"Juliet Taylor",
+		"Stuart Craig"
+	],
+	"votes": 66666,
+	"links": [
+		"https://www.amazon.com/Mission-Robert-Niro/dp/B001QB5S3G"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BODcxMDJiMzQtNzVkYS00ZDI3LWEzYmEtY2NiYTIzZWQzYzRlXkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg"
+}

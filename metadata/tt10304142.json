@@ -1,0 +1,43 @@
+{
+	"title": "Amsterdam",
+	"release_year": "2022",
+	"runtime": "134",
+	"tags": [
+		"Comedy",
+		"Drama",
+		"History",
+		"amazon"
+	],
+	"rating": 6.1,
+	"actors": [
+		"Christian Bale",
+		"Margot Robbie",
+		"John David Washington",
+		"Alessandro Nivola",
+		"Andrea Riseborough",
+		"Anya Taylor-Joy",
+		"Chris Rock",
+		"Matthias Schoenaerts",
+		"Michael Shannon",
+		"Mike Myers"
+	],
+	"staff": [
+		"David O. Russell",
+		"David O. Russell",
+		"Christian Bale",
+		"Matthew Budman",
+		"Anthony Katagas",
+		"Arnon Milchan",
+		"Daniel Pemberton",
+		"Emmanuel Lubezki",
+		"Jay Cassidy",
+		"Lindsay Graham",
+		"Mary Vernieu",
+		"Judy Becker"
+	],
+	"votes": 96297,
+	"links": [
+		"https://www.amazon.com/Amsterdam-Christian-Bale/dp/B0B6WCLJPZ"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BNzgxNTQzYTEtMDI3Yi00OGQ1LWFkNGMtZDEyM2JlYmE0YzUyXkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg"
+}

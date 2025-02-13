@@ -1,0 +1,40 @@
+{
+	"title": "Coyote Ugly",
+	"release_year": "2000",
+	"runtime": "100",
+	"tags": [
+		"Comedy",
+		"Drama",
+		"Music",
+		"amazon"
+	],
+	"rating": 5.7,
+	"actors": [
+		"Piper Perabo",
+		"Adam Garcia",
+		"John Goodman",
+		"Maria Bello",
+		"Izabella Miko",
+		"Tyra Banks",
+		"Bridget Moynahan",
+		"Melanie Lynskey",
+		"Del Pentecost",
+		"Michael Weston"
+	],
+	"staff": [
+		"David McNally",
+		"Gina Wendkos",
+		"Jerry Bruckheimer",
+		"Chad Oman",
+		"Trevor Horn",
+		"Amir Mokri",
+		"William Goldenberg",
+		"Bonnie Timmermann",
+		"Jon Hutman"
+	],
+	"votes": 122323,
+	"links": [
+		"https://www.amazon.com/Coyote-Ugly-Piper-Perabo/dp/B003VBNN54"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BYmM2NDA1ZDQtYTRjNi00NGIwLWJhZmMtM2Q3YjFmZGFjNjZhXkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg"
+}

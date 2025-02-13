@@ -1,0 +1,34 @@
+{
+	"title": "An Inconvenient Truth",
+	"release_year": "2006",
+	"runtime": "96",
+	"tags": [
+		"Documentary",
+		"amazon"
+	],
+	"rating": 7.4,
+	"actors": [
+		"Al Gore",
+		"Billy West",
+		"George Bush",
+		"George W. Bush",
+		"Ronald Reagan"
+	],
+	"staff": [
+		"Davis Guggenheim",
+		"Al Gore",
+		"Lawrence Bender",
+		"Scott Z. Burns",
+		"Laurie Lennard",
+		"Michael Brook",
+		"Davis Guggenheim",
+		"Robert Richman",
+		"Jay Cassidy",
+		"Dan Swietlik"
+	],
+	"votes": 85533,
+	"links": [
+		"https://www.amazon.com/Inconvenient-Truth-Al-Gore/dp/B000KZ3BWE"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BOTg3NjYxMjM5OF5BMl5BanBnXkFtZTcwMzQzMDA0MQ@@._V1_QL75_UY281_CR0,0,190,281_.jpg"
+}

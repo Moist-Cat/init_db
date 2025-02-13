@@ -1,0 +1,39 @@
+{
+	"title": "Citizenfour",
+	"release_year": "2014",
+	"runtime": "114",
+	"tags": [
+		"Biography",
+		"Documentary",
+		"amazon"
+	],
+	"rating": 8.0,
+	"actors": [
+		"Edward Snowden",
+		"Glenn Greenwald",
+		"William Binney",
+		"Jacob Appelbaum",
+		"Ewen MacAskill",
+		"Jeremy Scahill",
+		"M. Margaret McKeown",
+		"Kevin Bankston",
+		"Harry Pregerson",
+		"H. Thomas Byron"
+	],
+	"staff": [
+		"Laura Poitras",
+		"Mathilde Bonnefoy",
+		"Laura Poitras",
+		"Dirk Wilutzky",
+		"Kirsten Johnson",
+		"Trevor Paglen",
+		"Laura Poitras",
+		"Katy Scoggin",
+		"Mathilde Bonnefoy"
+	],
+	"votes": 58398,
+	"links": [
+		"https://www.amazon.com/dunkle-Spiegel-Snowden-globale-%C3%9Cberwachungsindustrie-ebook/dp/B08KLFH5MJ"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BMTc0MTM0MTA5MF5BMl5BanBnXkFtZTgwNzEwODEwMzE@._V1_QL75_UY281_CR1,0,190,281_.jpg"
+}

@@ -1,0 +1,41 @@
+{
+	"title": "Empire Records",
+	"release_year": "1995",
+	"runtime": "90",
+	"tags": [
+		"Comedy",
+		"Drama",
+		"Music",
+		"amazon"
+	],
+	"rating": 6.7,
+	"actors": [
+		"Anthony LaPaglia",
+		"Debi Mazar",
+		"Maxwell Caulfield",
+		"Rory Cochrane",
+		"Johnny Whitworth",
+		"Robin Tunney",
+		"Renée Zellweger",
+		"Ethan Embry",
+		"Coyote Shivers",
+		"Brendan Sexton III"
+	],
+	"staff": [
+		"Allan Moyle",
+		"Carol Heikkinen",
+		"Tony Ludwig",
+		"Arnon Milchan",
+		"Michael G. Nathanson",
+		"Alan Riche",
+		"Walt Lloyd",
+		"Michael Chandler",
+		"Gail Levin",
+		"Peter Jamison"
+	],
+	"votes": 62940,
+	"links": [
+		"https://www.amazon.com/Empire-Records-Anthony-Lapaglia/dp/B000NV0QG4"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BOTk1M2Q1NTEtNDk0ZS00OTBkLThkODctZGFjNmRhM2U3YTA5XkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg"
+}

@@ -1,0 +1,46 @@
+{
+	"title": "Frank",
+	"release_year": "2014",
+	"runtime": "95",
+	"tags": [
+		"Comedy",
+		"Drama",
+		"Music",
+		"amazon",
+		"netflix"
+	],
+	"rating": 6.9,
+	"actors": [
+		"Michael Fassbender",
+		"Domhnall Gleeson",
+		"Maggie Gyllenhaal",
+		"Moira Brooker",
+		"Paul Butterworth",
+		"Phil Kingston",
+		"Billie Traynor",
+		"Shane O'Brien",
+		"Scoot McNairy",
+		"François Civil"
+	],
+	"staff": [
+		"Lenny Abrahamson",
+		"Jon Ronson",
+		"Peter Straughan",
+		"David Barron",
+		"Ed Guiney",
+		"Stevie Lee",
+		"Andrew Lowe",
+		"Stephen Rennicks",
+		"James Mather",
+		"Nathan Nugent",
+		"David Rubin",
+		"Fiona Weir",
+		"Richard Bullock"
+	],
+	"links": [
+		"https://www.amazon.com/Frank-Domhnall-Gleeson/dp/B0B6SVF8VY",
+		"https://www.netflix.com/title/70299856"
+	],
+	"votes": 82810,
+	"cover": "https://m.media-amazon.com/images/M/MV5BMjM0OTczMTcxOV5BMl5BanBnXkFtZTgwMDU1MDUwMjE@._V1_QL75_UX190_CR0,0,190,281_.jpg"
+}

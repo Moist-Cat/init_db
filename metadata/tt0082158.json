@@ -1,0 +1,38 @@
+{
+	"title": "Chariots of Fire",
+	"release_year": "1981",
+	"runtime": "125",
+	"tags": [
+		"Biography",
+		"Drama",
+		"Sport",
+		"amazon"
+	],
+	"rating": 7.1,
+	"actors": [
+		"Ben Cross",
+		"Ian Charleson",
+		"Nicholas Farrell",
+		"Nigel Havers",
+		"Daniel Gerroll",
+		"Ian Holm",
+		"John Gielgud",
+		"Lindsay Anderson",
+		"Nigel Davenport",
+		"Cheryl Campbell"
+	],
+	"staff": [
+		"Hugh Hudson",
+		"Colin Welland",
+		"David Puttnam",
+		"Vangelis",
+		"David Watkin",
+		"Terry Rawlings",
+		"Esta Charkham"
+	],
+	"votes": 67178,
+	"links": [
+		"https://www.amazon.com/Chariots-Fire-Nicholas-Farrell/dp/B000I0Q2NQ"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BZjkzZjFmZDEtNTliZi00MDcwLThjMTMtNmI5OGVmYjZjZDM1XkEyXkFqcGc@._V1_QL75_UY281_CR0,0,190,281_.jpg"
+}

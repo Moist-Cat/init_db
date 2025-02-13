@@ -1,0 +1,39 @@
+{
+	"title": "The Dirty Dozen",
+	"release_year": "1967",
+	"runtime": "150",
+	"tags": [
+		"Action",
+		"Adventure",
+		"War",
+		"amazon"
+	],
+	"rating": 7.7,
+	"actors": [
+		"Lee Marvin",
+		"Ernest Borgnine",
+		"Charles Bronson",
+		"John Cassavetes",
+		"Jim Brown",
+		"Richard Jaeckel",
+		"George Kennedy",
+		"Trini López",
+		"Ralph Meeker",
+		"Robert Ryan"
+	],
+	"staff": [
+		"Robert Aldrich",
+		"Nunnally Johnson",
+		"Lukas Heller",
+		"E.M. Nathanson",
+		"Kenneth Hyman",
+		"Frank De Vol",
+		"Edward Scaife",
+		"Michael Luciano"
+	],
+	"votes": 80205,
+	"links": [
+		"https://www.amazon.com/Dirty-Dozen-Lee-Marvin/dp/B002M809JK"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BNDg0ZjhiN2EtM2I3Mi00MDNlLWJiY2UtNmU0Zjg0YTQyMjg1XkEyXkFqcGc@._V1_QL75_UX190_CR0,4,190,281_.jpg"
+}

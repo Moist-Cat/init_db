@@ -1,0 +1,43 @@
+{
+	"title": "The Duchess",
+	"release_year": "2008",
+	"runtime": "110",
+	"tags": [
+		"Biography",
+		"Drama",
+		"History",
+		"amazon"
+	],
+	"rating": 6.9,
+	"actors": [
+		"Keira Knightley",
+		"Ralph Fiennes",
+		"Dominic Cooper",
+		"Charlotte Rampling",
+		"Hayley Atwell",
+		"Simon McBurney",
+		"Aidan McArdle",
+		"John Shrapnel",
+		"Alistair Petrie",
+		"Patrick Godfrey"
+	],
+	"staff": [
+		"Saul Dibb",
+		"Jeffrey Hatcher",
+		"Anders Thomas Jensen",
+		"Saul Dibb",
+		"Amanda Foreman",
+		"Michael Kuhn",
+		"Gabrielle Tana",
+		"Rachel Portman",
+		"Gyula Pados",
+		"Masahiro Hirakubo",
+		"Lucy Bevan",
+		"Michael Carlin"
+	],
+	"votes": 87805,
+	"links": [
+		"https://www.amazon.com/Duchess-Keira-Knightley/dp/B0CQ5HPH9T"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BMTU1MTQzMjgzNl5BMl5BanBnXkFtZTcwNTQxMzk3MQ@@._V1_QL75_UY281_CR1,0,190,281_.jpg"
+}

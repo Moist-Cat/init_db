@@ -1,0 +1,38 @@
+{
+	"title": "MASH",
+	"release_year": "1970",
+	"runtime": "116",
+	"tags": [
+		"Comedy",
+		"Drama",
+		"War",
+		"amazon"
+	],
+	"rating": 7.4,
+	"actors": [
+		"Donald Sutherland",
+		"Elliott Gould",
+		"Tom Skerritt",
+		"Sally Kellerman",
+		"Robert Duvall",
+		"Roger Bowen",
+		"Rene Auberjonois",
+		"David Arkin",
+		"Jo Ann Pflug",
+		"Gary Burghoff"
+	],
+	"staff": [
+		"Robert Altman",
+		"Richard Hooker",
+		"Ring Lardner Jr.",
+		"Ingo Preminger",
+		"Johnny Mandel",
+		"Harold E. Stine",
+		"Danford B. Greene"
+	],
+	"votes": 78479,
+	"links": [
+		"https://www.amazon.com/Mash-Donald-Sutherland/dp/B008IGAITQ"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BZDI0MDNiNWMtYzc5NS00MTc2LWJlMjktM2RkZTEyMzZjOTIwXkEyXkFqcGc@._V1_QL75_UX190_CR0,3,190,281_.jpg"
+}

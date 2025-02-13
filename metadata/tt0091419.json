@@ -1,0 +1,42 @@
+{
+	"title": "Little Shop of Horrors",
+	"release_year": "1986",
+	"runtime": "94",
+	"tags": [
+		"Comedy",
+		"Horror",
+		"Musical",
+		"amazon"
+	],
+	"rating": 7.1,
+	"actors": [
+		"Rick Moranis",
+		"Ellen Greene",
+		"Vincent Gardenia",
+		"Levi Stubbs",
+		"Steve Martin",
+		"Tichina Arnold",
+		"Michelle Weeks",
+		"Tisha Campbell",
+		"Jim Belushi",
+		"John Candy"
+	],
+	"staff": [
+		"Frank Oz",
+		"Howard Ashman",
+		"Roger Corman",
+		"Charles B. Griffith",
+		"David Geffen",
+		"Miles Goodman",
+		"Robert Paynter",
+		"Gillian L. Hutshing",
+		"John Jympson",
+		"Margery Simkin",
+		"Roy Walker"
+	],
+	"votes": 87897,
+	"links": [
+		"https://www.amazon.com/Little-Shop-Horrors-Rick-Moranis/dp/B0012DP8A6"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BNTJjM2VhMDctMTIxYi00MzY3LWI5ZDgtZjFiNzg0M2QxNzI5XkEyXkFqcGc@._V1_QL75_UX190_CR0,7,190,281_.jpg"
+}

@@ -1,0 +1,33 @@
+{
+	"title": "Duck Soup",
+	"release_year": "1933",
+	"runtime": "69",
+	"tags": [
+		"Comedy",
+		"Musical"
+	],
+	"rating": 7.7,
+	"actors": [
+		"Groucho Marx",
+		"Harpo Marx",
+		"Chico Marx",
+		"Zeppo Marx",
+		"The Marx Brothers",
+		"Margaret Dumont",
+		"Raquel Torres",
+		"Louis Calhern",
+		"Edmund Breese",
+		"Leonid Kinskey"
+	],
+	"staff": [
+		"Leo McCarey",
+		"Bert Kalmar",
+		"Harry Ruby",
+		"Arthur Sheekman",
+		"Nat Perrin",
+		"Henry Sharp"
+	],
+	"votes": 63299,
+	"links": [],
+	"cover": "https://m.media-amazon.com/images/M/MV5BNGE5Mzg3NzMtZmI3My00ZWQwLThjYjYtOTZmZjQyNDVjMjIwXkEyXkFqcGc@._V1_QL75_UX190_CR0,1,190,281_.jpg"
+}

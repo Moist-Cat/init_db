@@ -1,0 +1,45 @@
+{
+	"title": "Rockstar",
+	"release_year": "2011",
+	"runtime": "159",
+	"tags": [
+		"Drama",
+		"Music",
+		"Romance",
+		"amazon"
+	],
+	"rating": 7.8,
+	"actors": [
+		"Ranbir Kapoor",
+		"Ranbir Kapoor",
+		"Nargis Fakhri",
+		"Shammi Kapoor",
+		"Kumud Mishra",
+		"Piyush Mishra",
+		"Shernaz Patel",
+		"Aditi Rao Hydari",
+		"Sanjana Sanghi",
+		"Shikha Jain",
+		"Jaideep Ahlawat"
+	],
+	"staff": [
+		"Imtiaz Ali",
+		"Imtiaz Ali",
+		"Hiren Gandhi",
+		"Dhaval Jatania",
+		"Sunil Lulla",
+		"Dhilin Mehta",
+		"A.R. Rahman",
+		"Anil Mehta",
+		"Aarti Bajaj",
+		"Mukesh Chhabra",
+		"Snigdha Basu",
+		"Sumit Basu",
+		"Rajnish Hedao"
+	],
+	"votes": 50635,
+	"links": [
+		"https://www.amazon.com/Rockstar-Ranbir-Kapoor/dp/B0789VBCM3"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BOTc3NzAxMjg4M15BMl5BanBnXkFtZTcwMDc2ODQwNw@@._V1_QL75_UY281_CR11,0,190,281_.jpg"
+}

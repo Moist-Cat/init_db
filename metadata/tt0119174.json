@@ -1,0 +1,41 @@
+{
+	"title": "The Game",
+	"release_year": "1997",
+	"runtime": "129",
+	"tags": [
+		"Drama",
+		"Mystery",
+		"Thriller",
+		"amazon"
+	],
+	"rating": 7.7,
+	"actors": [
+		"Michael Douglas",
+		"Deborah Kara Unger",
+		"Sean Penn",
+		"James Rebhorn",
+		"Peter Donat",
+		"Carroll Baker",
+		"Anna Katarina",
+		"Armin Mueller-Stahl",
+		"Charles Martinet",
+		"Scott Hunter McGuire"
+	],
+	"staff": [
+		"David Fincher",
+		"John Brancato",
+		"Michael Ferris",
+		"Ceán Chaffin",
+		"Steve Golin",
+		"Howard Shore",
+		"Harris Savides",
+		"James Haygood",
+		"Don Phillips",
+		"Jeffrey Beecroft"
+	],
+	"votes": 437594,
+	"cover": "https://m.media-amazon.com/images/M/MV5BNGUzNzQwNmMtNzI3Mi00ZDIwLWJlM2ItMTA5N2Q2ZDMxMjJiXkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg",
+	"links": [
+		"https://www.amazon.com/Game-Michael-Douglas/dp/B002H09I0Y"
+	]
+}

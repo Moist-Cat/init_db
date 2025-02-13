@@ -1,0 +1,39 @@
+{
+	"title": "Pink Floyd: The Wall",
+	"release_year": "1982",
+	"runtime": "95",
+	"tags": [
+		"Drama",
+		"Fantasy",
+		"Music",
+		"amazon"
+	],
+	"rating": 8.0,
+	"actors": [
+		"Bob Geldof",
+		"Christine Hargreaves",
+		"James Laurenson",
+		"Eleanor David",
+		"Kevin McKeon",
+		"Bob Hoskins",
+		"David Bingham",
+		"Jenny Wright",
+		"Alex McAvoy",
+		"Ellis Dale"
+	],
+	"staff": [
+		"Alan Parker",
+		"Roger Waters",
+		"Alan Marshall",
+		"Roger Waters",
+		"Peter Biziou",
+		"Gerry Hambling",
+		"Celestia Fox",
+		"Brian Morris"
+	],
+	"votes": 86327,
+	"links": [
+		"https://www.amazon.com/Pink-Floyd-original-photographs-British/dp/B0BS3PCD29"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BNzMxZGFhMTUtZGJjYS00Njc4LTk1NTktZmYzNjI0MzQxZDU3XkEyXkFqcGc@._V1_QL75_UX190_CR0,3,190,281_.jpg"
+}

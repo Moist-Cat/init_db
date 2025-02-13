@@ -1,0 +1,39 @@
+{
+	"title": "Doctor Zhivago",
+	"release_year": "1965",
+	"runtime": "197",
+	"tags": [
+		"Drama",
+		"Romance",
+		"War",
+		"amazon"
+	],
+	"rating": 7.9,
+	"actors": [
+		"Omar Sharif",
+		"Julie Christie",
+		"Geraldine Chaplin",
+		"Rod Steiger",
+		"Alec Guinness",
+		"Tom Courtenay",
+		"Siobhan McKenna",
+		"Ralph Richardson",
+		"Rita Tushingham",
+		"Jeffrey Rockland"
+	],
+	"staff": [
+		"David Lean",
+		"Boris Pasternak",
+		"Robert Bolt",
+		"Carlo Ponti",
+		"Maurice Jarre",
+		"Freddie Young",
+		"Norman Savage",
+		"John Box"
+	],
+	"votes": 82918,
+	"links": [
+		"https://www.amazon.com/Doctor-Zhivago-Omar-Sharif/dp/B000NI8F4W"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BMTczMzg1NTU1Nl5BMl5BanBnXkFtZTcwNzMwOTEyMg@@._V1_QL75_UX190_CR0,3,190,281_.jpg"
+}

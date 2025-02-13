@@ -1,0 +1,43 @@
+{
+	"title": "Judy",
+	"release_year": "2019",
+	"runtime": "118",
+	"tags": [
+		"Biography",
+		"Drama",
+		"Music",
+		"amazon",
+		"netflix"
+	],
+	"rating": 6.8,
+	"actors": [
+		"Renée Zellweger",
+		"Jessie Buckley",
+		"Finn Wittrock",
+		"Rufus Sewell",
+		"Michael Gambon",
+		"Richard Cordery",
+		"Royce Pierreson",
+		"Darci Shaw",
+		"Andy Nyman",
+		"Daniel Cerqueira"
+	],
+	"staff": [
+		"Rupert Goold",
+		"Tom Edge",
+		"Peter Quilter",
+		"David Livingstone",
+		"Gabriel Yared",
+		"Ole Bratt Birkeland",
+		"Melanie Oliver",
+		"Alice Searby",
+		"Fiona Weir",
+		"Kave Quinn"
+	],
+	"votes": 55338,
+	"links": [
+		"https://www.amazon.com/Judy-Ren%C3%A9e-Zellweger/dp/B07YCNV79J",
+		"https://www.netflix.com/title/80223104"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BYjY1OTJlZmQtNTEwNy00MjI1LWE4MWQtMzJlNTZmN2FmN2U5XkEyXkFqcGc@._V1_QL75_UX190_CR0,6,190,281_.jpg"
+}

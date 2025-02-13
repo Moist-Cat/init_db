@@ -1,16 +1,21 @@
-import streamlit as st
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-import scipy.stats as stats
 from glob import glob
 from pathlib import Path
 
+import pandas as pd
 import numpy as np
-from sklearn.preprocessing import PolynomialFeatures
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+import streamlit as st
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
-
+from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from statsmodels.tools.tools import add_constant
+from scipy.stats import shapiro
+from statsmodels.stats.stattools import durbin_watson
 
 from build import load_json, save_file
 
@@ -33,168 +38,238 @@ def prepare_data(movies_data):
     genre_df = pd.DataFrame(genre_data, columns=['Genre', 'Vote Count', 'Provider'])
     return genre_df
 
-# Function to plot distribution
-def plot_vote_count_distribution(genre_df):
-    st.subheader("Vote Count Distribution by Genre")
-    # Plot histogram and KDE
-    plt.figure(figsize=(10, 6))
-    sns.histplot(data=genre_df, x='Vote Count', hue='Genre', kde=True, element='step', stat='density')
-    plt.title('Vote Count Distribution by Genre')
-    plt.xlabel('Vote Count')
-    plt.ylabel('Density')
-    st.pyplot(plt)
+# Function to prepare data with vote ranges
+def prepare_vote_ranges(genre_df):
+    # Define the bins for vote counts using logarithmic scale
+    bins = np.logspace(np.log10(1000), np.log10(3000000), num=11)  # 10 bins, from 1000 to 3 million
+    labels = [f"{int(bins[i])}-{int(bins[i+1])}" for i in range(len(bins)-1)]
+    
+    # Create a new column for vote ranges
+    genre_df['Vote Range'] = pd.cut(genre_df['Vote Count'], bins=bins, labels=labels).to_frame()
 
-def plot_boxplot(genre_df):
-    st.subheader("Boxplot of Vote Count by Genre")
-    plt.figure(figsize=(10, 6))
-    sns.boxplot(data=genre_df, x='Genre', y='Vote Count')
-    plt.title('Vote Count Boxplot by Genre')
-    plt.xlabel('Genre')
-    plt.ylabel('Vote Count')
-    st.pyplot(plt)
+    # Group by vote range and count occurrences of genres in each range
 
-# Perform Kruskal-Wallis Test
-def perform_kruskal_wallis(genre_df):
-    unique_genres = genre_df['Genre'].unique()
-    grouped_genres = [genre_df[genre_df['Genre'] == genre]['Vote Count'] for genre in unique_genres]
-    
-    h_stat, p_value = stats.kruskal(*grouped_genres)
-    
-    st.subheader("Kruskal-Wallis Test Result")
-    st.write(f"H-statistic: {h_stat}")
-    st.write(f"P-value: {p_value}")
-    
-    if p_value < 0.05:
-        st.markdown("**Conclusion**: The distributions of vote counts across the genres are significantly different.")
-    else:
-        st.markdown("**Conclusion**: The distributions of vote counts across the genres are not significantly different.")
+    genre_range_table = genre_df.groupby(['Vote Range', 'Genre'], observed=False).size().unstack()
 
-# Perform Kolmogorov-Smirnov Test (pairwise comparisons)
-def perform_ks_tests(genre_df):
-    unique_genres = genre_df['Genre'].unique()
-    ks_results = []
-    
-    for genre1, genre2 in itertools.combinations(unique_genres, 2):
-        group1 = genre_df[genre_df['Genre'] == genre1]['Vote Count']
-        group2 = genre_df[genre_df['Genre'] == genre2]['Vote Count']
-        
-        stat, p_value = stats.ks_2samp(group1, group2)
-        ks_results.append((genre1, genre2, stat, p_value))
-    
-    st.subheader("Kolmogorov-Smirnov Test Results (Pairwise Comparisons)")
-    for result in ks_results:
-        st.write(f"KS test between {result[0]} and {result[1]}: H-stat = {result[2]}, P-value = {result[3]}")
-        if result[3] < 0.05:
-            st.markdown(f"**Conclusion**: The distributions of {result[0]} and {result[1]} are significantly different in shape.")
-        else:
-            st.markdown(f"**Conclusion**: The distributions of {result[0]} and {result[1]} are not significantly different in shape.")
+    return genre_range_table
 
-# Function to perform polynomial regression
-def perform_polynomial_regression(genre_df):
+# Function to create the correlation matrix
+def plot_correlation_matrix(genre_df):
     # Convert categorical variable 'Genre' to numerical using one-hot encoding
     genre_dummies = pd.get_dummies(genre_df['Genre'], drop_first=True)
-    X = genre_dummies.values  # Independent variables
-    y = genre_df['Vote Count'].values  # Dependent variable
 
-    # Fit polynomial features
-    poly = PolynomialFeatures(degree=2)  # You can change the degree based on your needs
-    X_poly = poly.fit_transform(X)
+    # Create the correlation matrix
+    corr_matrix = genre_dummies.corr()
 
-    # Fit linear regression model
+    # Visualize the correlation matrix using a heatmap
+    return plot_pca_components(genre_dummies)
+
+# Function to apply PCA and reduce dimensionality
+def perform_pca(genre_df):
+    # Convert categorical variable 'Genre' to numerical using one-hot encoding
+    genre_dummies = pd.get_dummies(genre_df['Genre'], drop_first=True)
+
+    # Standardize the data (important for PCA)
+    scaler = StandardScaler()
+    genre_scaled = scaler.fit_transform(genre_dummies)
+
+    # Allow the user to choose the number of components dynamically
+    num_components = st.slider("Select number of PCA components", min_value=2, max_value=genre_dummies.shape[1], value=genre_dummies.shape[1] - 1)
+
+    # Apply PCA with the user-selected number of components
+    pca = PCA(n_components=num_components)
+    principal_components = pca.fit_transform(genre_scaled)
+
+    # Create a DataFrame for the PCA components
+    pca_columns = [f'PC{i+1}' for i in range(num_components)]  # Create dynamic PC column names
+    #breakpoint()
+    pca_df = pd.DataFrame(data=principal_components, columns=pca_columns)
+
+    # Show the explained variance
+    st.subheader("Explained Variance by Each Component")
+    explained_variance = pca.explained_variance_ratio_ * 100  # Percentage of variance explained
+    st.write("Explained Variance (%)", explained_variance)
+
+    # Optionally display the dataframe with the PCA components
+    return pca_df, explained_variance
+
+# Step 2: Apply PCA to the genre data
+def apply_pca(genre_df):
+    # One-Hot Encoding for genres
+    genre_dummies = pd.get_dummies(genre_df['Genre'])
+
+    # Standardize the data before applying PCA
+    scaler = StandardScaler()
+    genre_scaled = scaler.fit_transform(genre_dummies)
+
+    # Apply PCA to reduce dimensionality
+    num_components = st.slider("Select number of PCA components", min_value=2, max_value=genre_dummies.shape[1], value=genre_dummies.shape[1] - 1)
+
+    # Apply PCA with the user-selected number of components
+    pca = PCA(n_components=num_components)
+    principal_components = pca.fit_transform(genre_scaled)
+
+    # Create a DataFrame for PCA components
+    pca_df = pd.DataFrame(principal_components, columns=[f'PC{i+1}' for i in range(principal_components.shape[1])])
+    return pca_df, genre_df['Vote Count']
+
+# Step 3: Train the Regression Model
+def train_regression_model(pca_df, vote_counts):
+    # Split data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(pca_df, vote_counts, test_size=0.2, random_state=42)
+
+    # Train a multiple linear regression model
     model = LinearRegression()
-    model.fit(X_poly, y)
+    model.fit(X_train, y_train)
 
-    # Predictions and metrics
-    y_pred = model.predict(X_poly)
-    
-    mse = mean_squared_error(y, y_pred)
-    r2 = r2_score(y, y_pred)
+    # Make predictions
+    y_pred = model.predict(X_test)
 
-    st.subheader("Polynomial Regression Results")
-    st.write(f"Mean Squared Error: {mse}")
-    st.write(f"R-squared: {r2}")
+    # Evaluate the model
+    mae = mean_absolute_error(y_test, y_pred)
+    r2 = r2_score(y_test, y_pred)
 
-    # Plotting the results
-    plt.figure(figsize=(10, 6))
-    plt.scatter(y, y_pred)
-    plt.xlabel('Actual Vote Count')
-    plt.ylabel('Predicted Vote Count')
-    plt.title('Actual vs Predicted Vote Count')
-    plt.plot([min(y), max(y)], [min(y), max(y)], color='red', linestyle='--')  # Diagonal line
-    st.pyplot(plt)
+    return model, X_test, y_test, y_pred, mae, r2
 
-# Check assumptions function
-def check_assumptions(genre_df):
-    # Residuals calculation
-    X = pd.get_dummies(genre_df['Genre'], drop_first=True).values
-    y = genre_df['Vote Count'].values
-    
-    poly = PolynomialFeatures(degree=2)
-    X_poly = poly.fit_transform(X)
-    
-    model = LinearRegression()
-    model.fit(X_poly, y)
-    
-    residuals = y - model.predict(X_poly)
+# Step 4: Check regression assumptions
+def check_regression_assumptions(X, y, y_pred):
+    residuals = y - y_pred
+     # 2. Independence: Durbin-Watson statistic
+     # From 0 to 4. A value of 2 indicates no correlation
+    dw_stat = durbin_watson(residuals)
+    # 4. Normality: Shapiro-Wilk Test for normality
+    stat, p_value = shapiro(residuals)
+    return dw_stat, stat, p_value
 
-    # Check normality of residuals
-    st.subheader("Normality of Residuals")
-    stats.probplot(residuals, dist="norm", plot=plt)
-    st.pyplot(plt) 
+# Step 5: Visualize PCA components (correlation matrix)
+def plot_pca_components(pca_df):
+    # Visualize the correlation matrix using a heatmap
+    corr_matrix = pca_df.corr()
+
+    fig, ax = plt.subplots(figsize=(10, 8))  # Increase figure size
+    sns.heatmap(
+        corr_matrix,
+        annot=True,               # Show numbers in cells
+        cmap='coolwarm',          # Color map
+        fmt='.2f',                # Format numbers to 2 decimal places
+        linewidths=3,             # Line width between cells
+        annot_kws={'size': 7},   # Adjust font size for annotations
+        cbar_kws={'shrink': 0.25}, # Shrink color bar
+        ax=ax,
+    )
+
+    # Display the plot
+    plt.tight_layout()  # Adjust layout to fit everything well
+    return fig
+
+# Step 6: Visualize regression results (Residuals, Fitted values plot, and histogram)
+def plot_residuals_vs_fitted(y_pred, residuals):
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.scatter(y_pred, residuals)
+    ax.set_title('Residuals vs Fitted Values')
+    ax.set_xlabel('Fitted Values')
+    ax.set_ylabel('Residuals')
+    return fig
+
+def plot_residuals_distribution(residuals):
+    fig, ax = plt.subplots(figsize=(6, 6))
+    sns.histplot(residuals, kde=True, ax=ax)
+    ax.set_title('Residuals Distribution')
+    ax.set_xlabel('Residuals')
+    ax.set_ylabel('Frequency')
+    return fig
+
+# Step 7: Visualize Durbin-Watson statistic and Shapiro-Wilk test results
+def visualize_assumptions(dw_stat, shapiro_p_value):
+    st.write(f'Durbin-Watson: {dw_stat:.3f}')
+    st.write(f'Shapiro-Wilk p-value: {shapiro_p_value:.3f}')
+
+def reg_visualization(genre_df):
+    # Step 2: Apply PCA
+    pca_df, vote_counts = apply_pca(genre_df)
+
+    # Step 3: Train regression model
+    model, X_test, y_test, y_pred, mae, r2 = train_regression_model(pca_df, vote_counts)
+
+    # Display results in Streamlit
+    st.title("Movie Genre PCA and Regression")
+
+    # Show evaluation metrics
+    st.subheader("Model Evaluation")
+    st.write(f"Mean Absolute Error (MAE): {mae:.2f}")
+    st.write(f"R-squared: {r2:.2f}")
+
+    # Plot PCA components heatmap
+    st.subheader("PCA Components Correlation Heatmap")
+    pca_fig = plot_pca_components(pca_df)
+    st.pyplot(pca_fig)
+
+    # Residuals vs Fitted values
+    residuals = y_test - y_pred
+    st.subheader("Residuals vs Fitted Values")
+    residuals_fitted_fig = plot_residuals_vs_fitted(y_pred, residuals)
+    st.pyplot(residuals_fitted_fig)
+
+    # Residuals distribution
+    st.subheader("Residuals Distribution")
+    residuals_dist_fig = plot_residuals_distribution(residuals)
+    st.pyplot(residuals_dist_fig)
+
+    # Assumptions: Durbin-Watson and Shapiro-Wilk test results
+    dw_stat, shapiro_stat, shapiro_p_value = check_regression_assumptions(X_test, y_test, y_pred)
+    st.subheader("Assumptions Check")
+    visualize_assumptions(dw_stat, shapiro_p_value)
 
 # Streamlit App layout
 def main():
     metadata_dirs = glob("metadata*")
-
     selected_directory = st.sidebar.selectbox("Select metadata directory", metadata_dirs)
     
     directory = Path("metadata") 
     if st.button("Fetch Metadata"):
         directory = Path(selected_directory)
-        del st.session_state.data 
+        del st.session_state.data  # Reset data
 
     if 'data' not in st.session_state:
-        # Build the initial graph
+        # Load the movie data
         movies_data = load_movies_data(directory)
-        # init state
+        # Initialize state
         st.session_state.data = movies_data
         print("INFO - Loaded data")
     movies_data = st.session_state.data
 
     # Prepare genre vote count data
     genre_df = prepare_data(movies_data)
-    st.title("Vote Count Distribution by Genre")
+    
+    # Prepare the vote range table (Step 1)
+    genre_range_table = prepare_vote_ranges(genre_df)
+    st.title("Vote Count Distribution by Genre and Vote Range")
+    
+    # Show vote range table
+    st.subheader("Vote Range Table")
+    st.dataframe(genre_range_table, column_config={"Vote Range": st.column_config.TextColumn("Vote Range")})
 
-    # Display the first few rows of the data
-    st.subheader("Dataset Preview")
-    st.write(genre_df.head())
-
-    # Select visualizations to display
+    # Visualization for vote count distribution
     st.sidebar.subheader("Choose Visualizations")
     options = st.sidebar.multiselect(
         "Select the plots to display",
-        ["Vote Count Distribution", "Boxplot of Vote Count"],
-        default=["Vote Count Distribution"]
+        ["Correlation Matrix", "PCA Visualization", "Regression"],
+        default=["Correlation Matrix", "PCA Visualization"]
     )
 
-    if "Vote Count Distribution" in options:
-        plot_vote_count_distribution(genre_df)
-    
-    if "Boxplot of Vote Count" in options:
-        plot_boxplot(genre_df)
+    # Correlation Matrix (Step 2)
+    if "Correlation Matrix" in options:
+        st.subheader("Correlation Matrix of Genres")
+        fig = plot_correlation_matrix(genre_df)
+        st.write(fig)
 
-    # Run Kruskal-Wallis Test
-    st.sidebar.subheader("Statistical Tests")
-    if st.sidebar.checkbox("Run Kruskal-Wallis Test"):
-        perform_kruskal_wallis(genre_df)
+    # PCA (Step 3)
+    if "PCA Visualization" in options:
+        st.subheader("PCA of Genre Data")
+        pca_df = perform_pca(genre_df)
 
-    if st.sidebar.checkbox("Run Kolmogorov-Smirnov Pairwise Test"):
-        perform_ks_tests(genre_df)
-
-        # Run Polynomial Regression and Check Assumptions
-    if st.sidebar.checkbox("Run Polynomial Regression"):
-        perform_polynomial_regression(genre_df)
-        check_assumptions(genre_df)
+    if "Regression" in options:
+        reg_visualization(genre_df)
 
 if __name__ == "__main__":
     main()

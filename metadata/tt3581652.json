@@ -1,0 +1,43 @@
+{
+	"title": "West Side Story",
+	"release_year": "2021",
+	"runtime": "156",
+	"tags": [
+		"Crime",
+		"Drama",
+		"Musical",
+		"amazon"
+	],
+	"rating": 7.1,
+	"actors": [
+		"Ansel Elgort",
+		"Rachel Zegler",
+		"Ariana DeBose",
+		"David Alvarez",
+		"Rita Moreno",
+		"Brian d'Arcy James",
+		"Corey Stoll",
+		"Mike Faist",
+		"Josh Rivera",
+		"Iris Menas"
+	],
+	"staff": [
+		"Steven Spielberg",
+		"Tony Kushner",
+		"Arthur Laurents",
+		"Kristie Macosko Krieger",
+		"Kevin McCollum",
+		"Steven Spielberg",
+		"Leonard Bernstein",
+		"Janusz Kaminski",
+		"Sarah Broshar",
+		"Michael Kahn",
+		"Cindy Tolan",
+		"Adam Stockhausen"
+	],
+	"links": [
+		"https://www.amazon.com/West-Side-Story-Ansel-Elgort/dp/B09HYSDG9D"
+	],
+	"votes": 97355,
+	"cover": "https://m.media-amazon.com/images/M/MV5BOWZkYzY2OGUtOGU4Ni00NmI0LTg2ZjAtZDA5OWE0YTNiZWRiXkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg"
+}

@@ -1,0 +1,40 @@
+{
+	"title": "Wayne's World 2",
+	"release_year": "1993",
+	"runtime": "95",
+	"tags": [
+		"Comedy",
+		"Music",
+		"amazon"
+	],
+	"rating": 6.2,
+	"actors": [
+		"Mike Myers",
+		"Dana Carvey",
+		"Christopher Walken",
+		"Tia Carrere",
+		"Chris Farley",
+		"Ralph Brown",
+		"James Hong",
+		"Rip Taylor",
+		"Steven Tyler",
+		"Joe Perry"
+	],
+	"staff": [
+		"Stephen Surjik",
+		"Mike Myers",
+		"Bonnie Turner",
+		"Terry Turner",
+		"Lorne Michaels",
+		"Carter Burwell",
+		"Francis Kenny",
+		"Malcolm Campbell",
+		"Lora Kennedy",
+		"Gregg Fonseca"
+	],
+	"votes": 88887,
+	"links": [
+		"https://www.amazon.com/Waynes-World-2-Stephen-Surjik/dp/B0DHHP1WYF"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BZTBmNzQ0OGUtYWY5ZC00ZjBhLTkwMzQtNjUxZGVlYTczMjEwXkEyXkFqcGc@._V1_QL75_UX190_CR0,7,190,281_.jpg"
+}

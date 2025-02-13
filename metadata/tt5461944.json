@@ -1,0 +1,46 @@
+{
+	"title": "Hotel Mumbai",
+	"release_year": "2018",
+	"runtime": "123",
+	"tags": [
+		"Action",
+		"Drama",
+		"History",
+		"amazon"
+	],
+	"rating": 7.6,
+	"actors": [
+		"Dev Patel",
+		"Armie Hammer",
+		"Nazanin Boniadi",
+		"Anupam Kher",
+		"Amandeep Singh",
+		"Suhail Nayyar",
+		"Manoj Mehra",
+		"Dinesh Kumar",
+		"Amritpal Singh",
+		"Kapil Kumar Netra"
+	],
+	"staff": [
+		"Anthony Maras",
+		"John Collee",
+		"Anthony Maras",
+		"Mike Gabrawy",
+		"Gary Hamilton",
+		"Basil Iwanyk",
+		"Andrew Ogilvie",
+		"Volker Bertelmann",
+		"Nick Remy Matthews",
+		"Anthony Maras",
+		"Peter McNulty",
+		"Ann Fay",
+		"Leigh Pickford",
+		"Trishaan",
+		"Steven Jones-Evans"
+	],
+	"votes": 72912,
+	"links": [
+		"https://www.amazon.com/Hotel-Mumbai-Armie-Hammer/dp/B07PFYCHBZ"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BZDE5NTVmM2UtMjYyZC00NTYzLTgyMjMtYzc5OTZkODliNTA1XkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg"
+}

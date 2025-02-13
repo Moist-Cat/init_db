@@ -1,0 +1,44 @@
+{
+	"title": "Kickboxer",
+	"release_year": "1989",
+	"runtime": "97",
+	"tags": [
+		"Action",
+		"Sport",
+		"Thriller",
+		"amazon"
+	],
+	"rating": 6.4,
+	"actors": [
+		"Jean-Claude Van Damme",
+		"Dennis Alexio",
+		"Dennis Chan",
+		"Michel Qissi",
+		"Haskell V. Anderson III",
+		"Rochelle Ashana",
+		"Ka-Ting Lee",
+		"Richard Foo",
+		"Ricky Liu",
+		"Ho-Ying Sin"
+	],
+	"staff": [
+		"Mark DiSalle",
+		"David Worth",
+		"Mark DiSalle",
+		"Jean-Claude Van Damme",
+		"Glenn A. Bruce",
+		"Mark DiSalle",
+		"Paul Hertzog",
+		"Jon Kranhouse",
+		"Wayne Wahrman",
+		"Madalena Chan",
+		"Teddy Chan",
+		"Siu-Lung Wong",
+		"Shay Austin"
+	],
+	"votes": 62018,
+	"links": [
+		"https://www.amazon.com/Kickboxer-Mark-DiSalle/dp/B0CKNMDLKR"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BYjQ2NjVkMjAtNGYzZC00ZTZiLWJlZjYtMTNlYWNiZDVlMDZkXkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg"
+}

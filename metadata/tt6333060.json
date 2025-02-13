@@ -1,0 +1,45 @@
+{
+	"title": "Icarus",
+	"release_year": "2017",
+	"runtime": "120",
+	"tags": [
+		"Documentary",
+		"Sport",
+		"amazon",
+		"netflix"
+	],
+	"rating": 7.9,
+	"actors": [
+		"Bryan Fogel",
+		"Dave Zabriskie",
+		"Don Catlin",
+		"Grigory Rodchenkov",
+		"Scott Brandt",
+		"Ben Stone",
+		"Dick Pound",
+		"Richard McLaren"
+	],
+	"staff": [
+		"Bryan Fogel",
+		"Bryan Fogel",
+		"Mark Monroe",
+		"Jon Bertain",
+		"Timothy Rode",
+		"Dan Cogan",
+		"David Fialkow",
+		"Bryan Fogel",
+		"Jim Swartz",
+		"Adam Peters",
+		"Timothy Rode",
+		"Jake Swantko",
+		"Jon Bertain",
+		"Kevin Klauber",
+		"Timothy Rode"
+	],
+	"votes": 55514,
+	"links": [
+		"https://www.amazon.com/Dissident-Jamal-Kashoggi/dp/B08QV23XMH",
+		"https://www.netflix.com/title/80168079"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BNGE4M2MxOWUtYmY2ZC00ZWYxLWIxZTAtNTNjYTZmYmUyOGY2XkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg"
+}

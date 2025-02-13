@@ -1,0 +1,45 @@
+{
+	"title": "Nacho Libre",
+	"release_year": "2006",
+	"runtime": "92",
+	"tags": [
+		"Comedy",
+		"Family",
+		"Sport",
+		"amazon"
+	],
+	"rating": 5.9,
+	"actors": [
+		"Jack Black",
+		"Ana de la Reguera",
+		"Héctor Jiménez",
+		"Darius Rose",
+		"Moises Arias",
+		"Diego Eduardo Gomez",
+		"Carlos Maycotte",
+		"Richard Montoya",
+		"Cesar Gonzalez",
+		"Rafael Montalvo"
+	],
+	"staff": [
+		"Jared Hess",
+		"Jared Hess",
+		"Jerusha Hess",
+		"Mike White",
+		"Jack Black",
+		"David Klawans",
+		"Julia Pistor",
+		"Mike White",
+		"Danny Elfman",
+		"Xavier Grobet",
+		"Billy Weber",
+		"Carol Lewis",
+		"Jory Weitz",
+		"Gideon Ponte"
+	],
+	"votes": 95302,
+	"links": [
+		"https://www.amazon.com/Nacho-Libre-Jack-Black/dp/B0C9G1VGK7"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BMjMyNmEzNWYtMDNkYS00NGFmLWE3YjYtNDViYjUyMDA3MTlkXkEyXkFqcGc@._V1_QL75_UY281_CR0,0,190,281_.jpg"
+}

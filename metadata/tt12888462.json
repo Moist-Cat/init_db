@@ -1,0 +1,32 @@
+{
+	"title": "My Octopus Teacher",
+	"release_year": "2020",
+	"runtime": "85",
+	"tags": [
+		"Documentary",
+		"Drama",
+		"netflix"
+	],
+	"rating": 8.1,
+	"actors": [
+		"Craig Foster",
+		"Tom Foster"
+	],
+	"staff": [
+		"Pippa Ehrlich",
+		"James Reed",
+		"Pippa Ehrlich",
+		"James Reed",
+		"Craig Foster",
+		"Kevin Smuts",
+		"Roger Horrocks",
+		"Pippa Ehrlich",
+		"Jinx Godfrey",
+		"Dan Schwalm"
+	],
+	"votes": 65280,
+	"links": [
+		"https://www.netflix.com/title/81045007"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BYWU5OGMxYjktMWY5Ny00NDJhLTgwMDktNjVmMTExZGIyODljXkEyXkFqcGc@._V1_QL75_UY281_CR4,0,190,281_.jpg"
+}

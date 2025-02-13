@@ -1,0 +1,45 @@
+{
+	"title": "Nick and Norah's Infinite Playlist",
+	"release_year": "2008",
+	"runtime": "90",
+	"tags": [
+		"Comedy",
+		"Drama",
+		"Music",
+		"amazon"
+	],
+	"rating": 6.6,
+	"actors": [
+		"Michael Cera",
+		"Kat Dennings",
+		"Aaron Yoo",
+		"Rafi Gavron",
+		"Ari Graynor",
+		"Alexis Dziena",
+		"Jonathan B. Wright",
+		"Zachary Booth",
+		"Jay Baruchel",
+		"Justin Rice"
+	],
+	"staff": [
+		"Peter Sollett",
+		"Lorene Scafaria",
+		"Rachel Cohn",
+		"David Levithan",
+		"Kerry Kohansky-Roberts",
+		"Andrew Miano",
+		"Chris Weitz",
+		"Paul Weitz",
+		"Mark Mothersbaugh",
+		"Tom Richmond",
+		"Myron Kerstein",
+		"Joseph Middleton",
+		"David Doernberg",
+		"Melissa House"
+	],
+	"votes": 95718,
+	"links": [
+		"https://www.amazon.com/Nick-Norahs-Infinite-Playlist-Rachel/dp/0375835334"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BOTY2MjI4ODI4Nl5BMl5BanBnXkFtZTcwNTMyNjM4MQ@@._V1_QL75_UX190_CR0,0,190,281_.jpg"
+}

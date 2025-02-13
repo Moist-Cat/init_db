@@ -1,0 +1,36 @@
+{
+	"title": "Sicko",
+	"release_year": "2007",
+	"runtime": "123",
+	"tags": [
+		"Documentary",
+		"Drama",
+		"amazon"
+	],
+	"rating": 8.0,
+	"actors": [
+		"Michael Moore",
+		"Tucker Albrizzi",
+		"Tony Benn",
+		"Reggie Cervantes",
+		"John Graham",
+		"Aleida Guevara"
+	],
+	"staff": [
+		"Michael Moore",
+		"Michael Moore",
+		"Michael Moore",
+		"Meghan O'Hara",
+		"Erin O'Hara",
+		"Andrew Black",
+		"Jayme Roy",
+		"Geoffrey Richman",
+		"Christopher Seward",
+		"Dan Swietlik"
+	],
+	"votes": 77053,
+	"links": [
+		"https://www.amazon.com/Sicko-weinstein/dp/B003006WRC"
+	],
+	"cover": "https://m.media-amazon.com/images/M/MV5BMWNkNjUxZjgtYjZiMy00ODI5LTkxYTktYTExMzdiOTZhZDNlXkEyXkFqcGc@._V1_QL75_UY281_CR0,0,190,281_.jpg"
+}
