@@ -14,8 +14,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 from statsmodels.tools.tools import add_constant
-from scipy.stats import shapiro
+from scipy.stats import shapiro, kstest, pearsonr
 from statsmodels.stats.stattools import durbin_watson
+import statsmodels.api as sm
 
 from build import load_json, save_file
 
@@ -36,7 +37,7 @@ def prepare_data(movies_data):
         genre_data.extend([(genre, vote_count, tuple(providers)) for genre in genres])
 
     genre_df = pd.DataFrame(genre_data, columns=['Genre', 'Vote Count', 'Provider'])
-    return genre_df
+    return genre_df.sample(n=min(10**4, len(genre_df)))
 
 # Function to prepare data with vote ranges
 def prepare_vote_ranges(genre_df):
@@ -72,28 +73,44 @@ def perform_pca(genre_df):
     # Standardize the data (important for PCA)
     scaler = StandardScaler()
     genre_scaled = scaler.fit_transform(genre_dummies)
-
+        
     # Allow the user to choose the number of components dynamically
     num_components = st.slider("Select number of PCA components", min_value=2, max_value=genre_dummies.shape[1], value=genre_dummies.shape[1] - 1)
-
+    
     # Apply PCA with the user-selected number of components
     pca = PCA(n_components=num_components)
     principal_components = pca.fit_transform(genre_scaled)
-
+    
     # Create a DataFrame for the PCA components
     pca_columns = [f'PC{i+1}' for i in range(num_components)]  # Create dynamic PC column names
-    #breakpoint()
     pca_df = pd.DataFrame(data=principal_components, columns=pca_columns)
-
+    
     # Show the explained variance
     st.subheader("Explained Variance by Each Component")
     explained_variance = pca.explained_variance_ratio_ * 100  # Percentage of variance explained
     st.write("Explained Variance (%)", explained_variance)
 
-    # Optionally display the dataframe with the PCA components
-    return pca_df, explained_variance
+    # Show cumulative explained variance to understand how much variance is explained by the selected number of components
+    cumulative_variance = np.cumsum(explained_variance)
+    st.write("Cumulative Explained Variance (%)", cumulative_variance)
+    
+    # Display the component loadings (how much each feature contributes to each principal component)
+    st.subheader("Component Loadings")
+    loadings_df = pd.DataFrame(pca.components_.T, columns=pca_columns, index=genre_dummies.columns)
+    st.write(loadings_df)
 
-# Step 2: Apply PCA to the genre data
+    # Additional information on significant components
+    st.subheader("Significant Insights")
+    significant_components = [i + 1 for i, var in enumerate(explained_variance) if var >= 10]  # Components explaining more than 10%
+    if significant_components:
+        st.write(f"The following components explain more than 10% of the variance: {significant_components}")
+    else:
+        st.write("No components explain more than 10% of the variance individually.")
+    
+    # Optionally display the dataframe with the PCA components
+    return pca_df, explained_variance, cumulative_variance, loadings_df
+
+
 def apply_pca(genre_df):
     # One-Hot Encoding for genres
     genre_dummies = pd.get_dummies(genre_df['Genre'])
@@ -113,35 +130,6 @@ def apply_pca(genre_df):
     pca_df = pd.DataFrame(principal_components, columns=[f'PC{i+1}' for i in range(principal_components.shape[1])])
     return pca_df, genre_df['Vote Count']
 
-# Step 3: Train the Regression Model
-def train_regression_model(pca_df, vote_counts):
-    # Split data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(pca_df, vote_counts, test_size=0.2, random_state=42)
-
-    # Train a multiple linear regression model
-    model = LinearRegression()
-    model.fit(X_train, y_train)
-
-    # Make predictions
-    y_pred = model.predict(X_test)
-
-    # Evaluate the model
-    mae = mean_absolute_error(y_test, y_pred)
-    r2 = r2_score(y_test, y_pred)
-
-    return model, X_test, y_test, y_pred, mae, r2
-
-# Step 4: Check regression assumptions
-def check_regression_assumptions(X, y, y_pred):
-    residuals = y - y_pred
-     # 2. Independence: Durbin-Watson statistic
-     # From 0 to 4. A value of 2 indicates no correlation
-    dw_stat = durbin_watson(residuals)
-    # 4. Normality: Shapiro-Wilk Test for normality
-    stat, p_value = shapiro(residuals)
-    return dw_stat, stat, p_value
-
-# Step 5: Visualize PCA components (correlation matrix)
 def plot_pca_components(pca_df):
     # Visualize the correlation matrix using a heatmap
     corr_matrix = pca_df.corr()
@@ -184,25 +172,66 @@ def visualize_assumptions(dw_stat, shapiro_p_value):
     st.write(f'Durbin-Watson: {dw_stat:.3f}')
     st.write(f'Shapiro-Wilk p-value: {shapiro_p_value:.3f}')
 
+def train_regression_model(pca_df, vote_counts):
+    # Split data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(pca_df, vote_counts, test_size=0.2, random_state=42)
+
+    # Train a multiple linear regression model using sklearn
+    model = LinearRegression()
+    fitted = model.fit(X_train, y_train)
+
+    # Make predictions
+    y_pred = model.predict(X_test)
+
+    # Evaluate the model
+    mae = mean_absolute_error(y_test, y_pred)
+    r2 = r2_score(y_test, y_pred)
+
+    # For detailed summary, we use statsmodels
+    # Add constant for intercept (like R's lm)
+    X_train_sm = sm.add_constant(X_train)
+    sm_model = sm.OLS(y_train, X_train_sm.astype(float)).fit()  # fit using statsmodels
+
+    return model, X_test, y_test, y_pred, mae, r2, sm_model  # Return statsmodels model as well
+
+def kolmogorov_smirnov_test(residuals):
+    # Kolmogorov-Smirnov test for normality (testing residuals against normal distribution)
+    ks_statistic, ks_p_value = kstest(residuals, 'norm', args=(np.mean(residuals), np.std(residuals)))
+    return ks_statistic, ks_p_value
+
 def reg_visualization(genre_df):
     # Step 2: Apply PCA
     pca_df, vote_counts = apply_pca(genre_df)
 
     # Step 3: Train regression model
-    model, X_test, y_test, y_pred, mae, r2 = train_regression_model(pca_df, vote_counts)
+    #model, X_test, y_test, y_pred, mae, r2, sm_model = train_regression_model(pca_df, vote_counts)
+    genre_dummies = pd.get_dummies(genre_df['Genre'])
+    model, X_test, y_test, y_pred, mae, r2, sm_model = train_regression_model(genre_dummies, vote_counts)
 
     # Display results in Streamlit
     st.title("Movie Genre PCA and Regression")
 
     # Show evaluation metrics
     st.subheader("Model Evaluation")
-    st.write(f"Mean Absolute Error (MAE): {mae:.2f}")
-    st.write(f"R-squared: {r2:.2f}")
+    #st.write(f"Mean Absolute Error (MAE): {mae:.2f}")
+    #st.write(f"R-squared: {r2:.2f}")
 
-    # Plot PCA components heatmap
-    st.subheader("PCA Components Correlation Heatmap")
-    pca_fig = plot_pca_components(pca_df)
-    st.pyplot(pca_fig)
+    # Show detailed regression summary
+    st.subheader("Regression Model Summary")
+    st.html(sm_model.summary().as_html())  # Display detailed regression summary from statsmodels
+
+
+    while True:
+        for key, value in sm_model.pvalues.items():
+            if value >= 0.05 and key != "const":
+                del genre_dummies[key]
+                model, X_test, y_test, y_pred, mae, r2, sm_model = train_regression_model(genre_dummies, vote_counts)
+                break
+        else:
+            break
+
+    st.subheader("Regression Model Summary (after drop by p-value)")
+    st.html(sm_model.summary().as_html())  # Display detailed regression summary from statsmodels
 
     # Residuals vs Fitted values
     residuals = y_test - y_pred
@@ -215,10 +244,12 @@ def reg_visualization(genre_df):
     residuals_dist_fig = plot_residuals_distribution(residuals)
     st.pyplot(residuals_dist_fig)
 
-    # Assumptions: Durbin-Watson and Shapiro-Wilk test results
-    dw_stat, shapiro_stat, shapiro_p_value = check_regression_assumptions(X_test, y_test, y_pred)
-    st.subheader("Assumptions Check")
-    visualize_assumptions(dw_stat, shapiro_p_value)
+    # Kolmogorov-Smirnov Test for residuals normality
+    ks_statistic, ks_p_value = kolmogorov_smirnov_test(residuals)
+    st.subheader("Kolmogorov-Smirnov Test")
+    st.write(f"KS Statistic: {ks_statistic:.4f}")
+    st.write(f"KS p-value: {ks_p_value:.4f}")
+
 
 # Streamlit App layout
 def main():
